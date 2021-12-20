@@ -2,36 +2,74 @@ var express = require('express');
 var router = express.Router();
 const spawn = require("child_process").spawn;
 const PATH = "./predict/model.py"
+const {districts, wards, projects, balconyDirections, legalPapers, features} = require('../data/constants');
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Ước lượng giá chung cư' });
+router.get('/', function (req, res, next) {
+  res.render('index', { 
+    title: 'Ước lượng giá chung cư',
+    districts: districts.sort(),
+    wards: wards.sort(),
+    projects: projects.sort(),
+    balconyDirections,
+    legalPapers,
+    features
+  });
 });
 
 /* POST home page. */
-router.post('/', function(req, res, next) {
+router.post('/predict', function (req, res, next) {
   // Get arguments
-  const arg1 = req.body.geoloc;
-  const arg2 = req.body.area;
-  const arg3 = req.body.project;
-  const arg4 = req.body.bedroom;
-  const arg5 = req.body.bathroom;
-  const arg6 = req.body.floor;
-  const arg7 = req.body.direction;
-  const arg8 = req.body.legalPaper;
-  const arg9 = req.body.feature;
+  const argv = req.body;
   
+  const district = argv['district']
+  const ward = argv['ward']
+  const project = argv['project']
+  
+  const area = parseFloat(argv['area'])
+  const bedroom = parseInt(argv['bedroom'])
+  const bathroom = parseInt(argv['bathroom'])
+
+  const pool = argv['pool'] == 'on' ? 'Có' : 'Không'
+  const skyview = argv['skyview'] == 'on' ? 'Có' : 'Không'
+
+  const lat = 106.6024317
+  const lon = 10.7765612
+
+  const legal = []
+  const feature = []
+  const balcony = []
+
+  for (const key in argv) {
+    if(key.startsWith("LGPP ") && argv[key] == 'on') {
+      // Cắt bỏ LGPP rồi push vào legal
+      legal.push(key.slice(5));
+    }
+    
+    if(key.startsWith("FT ") && argv[key] == 'on') {
+      // Cắt bỏ FT rồi push vào feature
+      feature.push(key.slice(3));
+    }
+    
+    if(key.startsWith("DR ") && argv[key] == 'on') {
+      // Cắt bỏ DR rồi push vào balcony
+      balcony.push(key.slice(3));
+    }
+  }
+
+  // Argument will be pass to python process
+  pyArgs = [PATH, pool, skyview, bedroom, bathroom, area, lat, lon, legal, feature, district, ward, project, balcony]
+
+  console.log(pyArgs);
+
   // Call python process
-  const pythonProcess = spawn('python',[PATH, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9]);
-  
+  const pythonProcess = spawn('python', pyArgs);
+
   // Receive data
-  pythonProcess.stdout.on('data', function(data) {
+  pythonProcess.stdout.on('data', function (data) {
     console.log(data.toString());
-    res.render('estimated', {
-      body: req.body,
-      predictPrice: data, 
-      title: 'Ước lượng giá chung cư' 
-    });
+    res.send(data);
   });
 
   // If call python fail
@@ -41,3 +79,13 @@ router.post('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+/* Note:
+  Ở đây gọi file python, load model lên, thực hiện dự đoán
+  Cách này chưa tối ưu, vì trong trường hợp model nặng mà có nhiều request user gửi đến thì sẽ bị chậm
+  Bởi vì model phải load liên tục
+  Giải pháp thay thế là cần 1 process load sẵn model chạy ngầm liên tục và đợi các request gửi tới thì chỉ
+  cần thực hiện predict. 
+  Tuy nhiên với phạm vi bài tập lớn môn khoa học dữ liệu, thì như vậy là tạm ổn rồi. 
+  Môn học cũng không chú trọng phần xử lý web này.
+  */
