@@ -34,8 +34,8 @@ router.post('/predict', function (req, res, next) {
   const pool = argv['pool'] == 'on' ? 'Có' : 'Không'
   const skyview = argv['skyview'] == 'on' ? 'Có' : 'Không'
 
-  const lat = 106.6024317
-  const lon = 10.7765612
+  const lat = argv['lat']
+  const lon = argv['lon']
 
   const legal = []
   const feature = []

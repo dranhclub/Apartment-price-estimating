@@ -1,10 +1,10 @@
 import numpy as np
 from joblib import load
 import pickle
-import os, sys
+import os
+import sys
 
 
-# TODO: Implement this function to call the AI model
 def predict(input, loaded_model):
     result = loaded_model.predict(input)
     result = float(result)
@@ -12,15 +12,6 @@ def predict(input, loaded_model):
     return result
 
 # Help function
-
-
-def parse_int(x):
-    if (x == ''):
-        return 0
-    else:
-        return int(x)
-
-
 def parse_float(x):
     if (x == ''):
         return 0
@@ -32,11 +23,16 @@ if __name__ == "__main__":
     # Get arguments
     _, pool, skyview, bedroom, bathroom, area, lat, lon, legal, feature, district, ward, project, balcony = sys.argv
 
+    # Set folder which containt models
     MODEL_FOLDER = os.path.join(os.getcwd(), 'predict')
-    # model_path = os.path.join(MODEL_FOLDER, 'rf.joblib')
+
+    # Set model 
+    model_path = os.path.join(MODEL_FOLDER, 'rf.joblib')
     # model_path = os.path.join(MODEL_FOLDER, 'lgb.joblib')
     # model_path = os.path.join(MODEL_FOLDER, 'gbr.joblib')
     # model_path = os.path.join(MODEL_FOLDER, 'stack_gen.joblib')
+    
+    # Set others
     dict_path = os.path.join(MODEL_FOLDER, 'name_dict.pickle')
     lon_sc_path = os.path.join(MODEL_FOLDER, 'lon_scaler.bin')
     lat_sc_path = os.path.join(MODEL_FOLDER, 'lat_scaler.bin')
@@ -45,10 +41,6 @@ if __name__ == "__main__":
     area = parse_float(area)
     bathroom = parse_float(bathroom)
     bedroom = parse_float(bedroom)
-
-    args = [pool, skyview, bedroom, bathroom, area, lat, lon,
-            legal, feature, district, ward, project, balcony]
-
 
     # Initialize input model
     input = np.zeros((1, 450))
