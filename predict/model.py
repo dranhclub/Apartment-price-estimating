@@ -29,7 +29,7 @@ if __name__ == "__main__":
     # Set model 
     model_path = os.path.join(MODEL_FOLDER, 'rf.joblib')
     # model_path = os.path.join(MODEL_FOLDER, 'lgb.joblib')
-    # model_path = os.path.join(MODEL_FOLDER, 'gbr.joblib')
+    model_path = os.path.join(MODEL_FOLDER, 'gbr.joblib')
     # model_path = os.path.join(MODEL_FOLDER, 'stack_gen.joblib')
     
     # Set others
