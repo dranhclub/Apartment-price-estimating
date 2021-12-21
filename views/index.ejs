@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-   
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
-     <!-- Site Metas -->
-    <title>Ước lượng giá chung cư</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <!-- Colors CSS -->
-    <link rel="stylesheet" href="/stylesheets/css/colors.css">
-    <!-- ALL VERSION CSS -->
-    <link rel="stylesheet" href="/stylesheets/css/versions.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="/stylesheets/css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/stylesheets/css/custom.css">
+<!-- Site Metas -->
+<title>Ước lượng giá chung cư</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <!-- Modernizer for Portfolio -->
-    <script src="/js/modernizer.js"></script>
+<!-- Site Icons -->
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-    <!--[if lt IE 9]>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/css/bootstrap-msg.css">
+<!-- Site CSS -->
+<link rel="stylesheet" href="/stylesheets/style.css">
+<!-- Colors CSS -->
+<link rel="stylesheet" href="/stylesheets/css/colors.css">
+<!-- ALL VERSION CSS -->
+<link rel="stylesheet" href="/stylesheets/css/versions.css">
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="/stylesheets/css/responsive.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/css/custom.css">
+
+<!-- Modernizer for Portfolio -->
+<script src="/js/modernizer.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script> 
+<script src="/js/bootstrap-msg.js"></script> 
+
+<!-- Google Map  -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
+<!-- End gg map  -->
+
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
+
 <body class="realestate_version">
 
     <!-- LOADER -->
     <div id="preloader">
         <span class="loader"><span class="loader-inner"></span></span>
-    </div><!-- end loader -->
+    </div>
+    <!-- end loader -->
     <!-- END LOADER -->
 
     <header class="header header_style_01">
@@ -71,58 +82,58 @@
                         <li class="social-links"><a href="#"><i class="fa fa-twitter global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-facebook global-radius"></i></a></li>
                         <li class="social-links"><a href="#"><i class="fa fa-linkedin global-radius"></i></a></li>
-						<li class="search-option">
-							<button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
-							<form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
-								<input type="text" placeholder="Search....">
-								<button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
-							</form>
-					   </li> 
+                        <li class="search-option">
+                            <button class="search tran3s dropdown-toggle" id="searchDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <form action="#" class="p-color-bg dropdown-menu tran3s" aria-labelledby="searchDropdown">
+                                <input type="text" placeholder="Search....">
+                                <button class="p-color-bg"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-	
-	<ul class='slideshow'>
-		<li>
-			<span>Summer</span>
-		</li>
-		<li>		
-			<span>Fall</span>
-		</li>
-		<li>		
-			<span>Winter</span>
-		</li>
-		<li>
-			<span>Spring</span>
-		</li>
-	</ul>
-    
+
+    <ul class='slideshow'>
+        <li>
+            <span>Summer</span>
+        </li>
+        <li>
+            <span>Fall</span>
+        </li>
+        <li>
+            <span>Winter</span>
+        </li>
+        <li>
+            <span>Spring</span>
+        </li>
+    </ul>
+
     <div class="parallax first-section">
         <div class="container">
             <div class="row">
-				<div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <div class="big-tagline clearfix">
                         <h2>Ước lượng giá chung cư bằng AI</h2>
                         <p class="lead">Ước lượng giá chung cư giúp bạn có thể tham khảo, tìm hiểu giá thị trường. Vui lòng nhập chi tiết, càng chi tiết, giá dự đoán càng chính xác.</p>
-                        <a data-scroll href="#fill-info" class="btn btn-light btn-radius grd1 btn-brd">ƯỚC LƯỢNG NGAY</a>
+                        <a data-scroll href="#fill-info" class="btn btn-light btn-radius grd1 btn-brd"> <span class="glyphicon glyphicon-home"></span> ƯỚC LƯỢNG NGAY</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-	<div class="mt-4">.</div>
-	<div class="mt-4">.</div>
-	<div class="mt-4">.</div>
+    <div class="mt-4">.</div>
+    <div class="mt-4">.</div>
+    <div class="mt-4">.</div>
     <section id="fill-info">
         <div class="container">
             <div class="my-3">
                 <h1 class="text-center"> THÔNG TIN CHUNG CƯ</h1>
             </div>
             <form method="POST" id="apartment-info">
-                
+
                 <!-- ---------------Thông tin địa chỉ --------------------->
                 <h2>Nhập địa chỉ</h2>
                 <div class="row">
@@ -147,28 +158,34 @@
                     <!-- Toạ độ -->
                     <div class="col-lg-4">
                         <div class="row">
-                            <div class="col-lg-3">
-                                <label for="lat">Vĩ độ</label>
+                            <div class="col-lg-2" style="padding: unset; padding-top:3px">
+                                <label for="lat" style="font-size:14px">Vĩ độ</label>
                             </div>
-                            <div class="col-lg-8">
-                                <input type="number" name="lat" id="lat" class="form-control" value="10.7765612" min="10.649429" max="10.897705" step="0.0000001">
+                            <div class="col-lg-5">
+                                <input type="number" name="lat" id="lat" class="form-control" value="10.7765612" min="10" max="11.2" step="0.0000001">
                             </div>
-                        </div>    
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <label for="lon">Kinh độ</label>
+                            <div class="col-lg-5">
+                                <button id="setLocationInput" class="btn btn-light btn-radius grd1 btncuss btn-brd"><i class="fa fa-pencil" aria-hidden="true" style="font-size:14px"> Set by Input</i></button>
                             </div>
-                            <div class="col-lg-8">
-                                <input type="number" name="lon" id="lon" class="form-control" value="106.6024317" min="106.551806" max="106.870940" step="0.0000001">
+                        </div>
+                        <div class="row" style="padding-top: 5px;">
+                            <div class="col-lg-2" style="padding: unset; padding-top:3px">
+                                <label for="lon" style="font-size:14px">Kinh độ</label>
+                            </div>
+                            <div class="col-lg-5">
+                                <input type="number" name="lon" id="lon" class="form-control" value="106.6024317" min="106" max="107.2" step="0.0000001">
+                            </div>
+                            <div class="col-lg-5">
+                                <button id="setMyLocation" class="btn btn-light btn-radius btncuss grd1 btn-brd"><i class="fa fa-location-arrow" aria-hidden="true" style="font-size:14px"> My location</i></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-
-
                 <br>
-
+                 <!-- Google  Map -->
+                <div id="map"></div>
+                <br>
+                 <!-- End  Map -->
                 <!-- ---------------Thông tin khác --------------------->
                 <h2>Nhập thông tin khác</h2>
                 <label for="project">Dự án</label>
@@ -177,11 +194,11 @@
                         <option value="<%=project%>"><%=project%></option>
                     <% } %> 
                 </select>
-                
+
                 <div class="row">
                     <div class="col-lg-4">
                         <label for="area">Diện tích (m²) </label>
-                        <input type="number" class="form-control" id="area" name="area"  min="15" max="800" value="90" step="0.01">
+                        <input type="number" class="form-control" id="area" name="area" min="15" max="800" value="90" step="0.01">
                     </div>
                     <div class="col-lg-4">
                         <label for="bathroom"> Số phòng tắm </label>
@@ -199,12 +216,12 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <% for (const direction of balconyDirections) { %>
-                        <input type="checkbox" name="DR <%=direction%>" id="<%=direction%>">
-                        <label for="<=%direction%>" style="font-weight: lighter;"><%=direction%></label>
-                        <% } %>
+                            <input type="checkbox" name="DR <%=direction%>" id="<%=direction%>">
+                            <label for="<=%direction%>" style="font-weight: lighter;"><%=direction%></label>
+                            <% } %>
                     </div>
                 </div>
-                
+
                 <br>
                 <div class="row">
 
@@ -217,7 +234,7 @@
                                     <input type="checkbox" name="LGPP <%=legal%>" id="<%=legal%>">
                                     <label for="<=%legal%>" style="font-weight: lighter;"><%=legal%></label>
                                 </div>
-                            <% } %>
+                                <% } %>
                         </div>
                     </div>
 
@@ -238,19 +255,19 @@
                                     <input type="checkbox" name="FT <%=feature%>" id="<%=feature%>">
                                     <label for="<=%feature%>" style="font-weight: lighter;"><%=feature%></label>
                                 </div>
-                            <% } %>
+                                <% } %>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <!-- Submit button -->
                         <div class="text-center">
-                            <a value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block">ƯỚC LƯỢNG GIÁ</a>
+                            <a value="SEND" id="submit1" class="btn btn-light btn-radius btn-brd grd1 btn-block"><span class="glyphicon glyphicon-usd"></span> ƯỚC LƯỢNG GIÁ</a>
                         </div>
-
-                        <!-- Result -->
+                        <div id="loading" class="lds-ellipsis" style="display: none;"><div></div><div></div><div></div><div></div></div>
                         <br>
-                        <div>
+                        <!-- Result -->
+                        <div id ="price_predict" style="display: none;">
                             <div>
                                 <span style="font-size: xx-large;" id="price">0</span> triệu VNĐ
                             </div>
@@ -275,8 +292,10 @@
                         </div>
                         <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
                         <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
 
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="widget clearfix">
@@ -288,14 +307,17 @@
                             <li><a href="#"> Home </a></li>
                             <li><a href="#"> About Us </a></li>
                             <li><a href="#"> Services</a></li>
-							<li><a href="#"> Gallery</a></li>
-							<li><a href="#"> Properties</a></li>
-							<li><a href="#"> Contact</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
+                            <li><a href="#"> Gallery</a></li>
+                            <li><a href="#"> Properties</a></li>
+                            <li><a href="#"> Contact</a></li>
+                        </ul>
+                        <!-- end links -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
+
+                <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
                             <h3>Contact Details</h3>
@@ -306,10 +328,13 @@
                             <li><a href="#">www.yoursite.com</a></li>
                             <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
                             <li>+61 3 8376 6284</li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
+                        </ul>
+                        <!-- end links -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
+
                 <div class="col-md-2 col-sm-2 col-xs-12">
                     <div class="widget clearfix">
                         <div class="widget-title">
@@ -321,13 +346,19 @@
                             <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
                             <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
                             <li><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
-                        </ul><!-- end links -->
-                    </div><!-- end clearfix -->
-                </div><!-- end col -->
-				
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </footer><!-- end footer -->
+                        </ul>
+                        <!-- end links -->
+                    </div>
+                    <!-- end clearfix -->
+                </div>
+                <!-- end col -->
+
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </footer>
+    <!-- end footer -->
 
     <div class="copyrights">
         <div class="container">
@@ -343,43 +374,105 @@
                     </form>
                 </div>
             </div>
-        </div><!-- end container -->
-    </div><!-- end copyrights -->
-
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end copyrights -->
     <!-- ALL JS FILES -->
     <script src="/js/all.js"></script>
     <!-- ALL PLUGINS -->
     <script src="/js/custom.js"></script>
     <script src="/js/portfolio.js"></script>
-    <script src="/js/hoverdir.js"></script>    
+    <script src="/js/hoverdir.js"></script>
 
     <script>
+        //Google Map
+        var lp = new locationPicker('map', {
+            setCurrentPosition: false, // You can omit this, defaults to true
+            lat: 10.7765612 , 
+            lng: 106.6024317
+        }, {
+            zoom: 13 // You can set any google map options here, zoom defaults to 15
+        });
+        $('#setMyLocation').click(function(){
+            lp.setCurrentPosition();
+            var location = lp.getMarkerPosition();
+            $('#lon').val(location.lng.toFixed(8));
+            $('#lat').val(location.lat.toFixed(8));
+        });
+        $('#setLocationInput').click(function(){
+            lp.setLocation($('#lat').val(), $('#lon').val());
+        });
+        google.maps.event.addListener(lp.map, 'idle', function (event) {
+            // Get current location and show it in HTML
+            var location = lp.getMarkerPosition();
+            $('#lon').val(location.lng.toFixed(8));
+            $('#lat').val(location.lat.toFixed(8));
+        });
+
+        Msg.iconMode = 'fa';
+
+        //**** SUBMIT ****//
+        function checkNumField(value,name, min, max){
+            if (value) {
+                if(value<min || value>max){
+                    Msg.error("Giá trị "+name+" từ "+min+" đến "+max+"!", 2000);
+                    return false;
+                }
+            }
+            else{
+                Msg.error("Giá trị "+ name +" không thể để trống!", 2000);
+                return false;
+            }
+            return true;
+        }
+        function checkInputField(datainput){
+            return (checkNumField(datainput.area,"diện tích",10,300)
+                    &&checkNumField(datainput.bedroom,"phòng ngủ",0,8)
+                    &&checkNumField(datainput.bathroom,"phòng tắm",0,8)
+                    &&checkNumField(datainput.lat,"vĩ độ",10,11.2)
+                    &&checkNumField(datainput.lon,"kinh độ",106,107.2))
+        }
         $('#submit1').click(function() {
             const arr = $('#apartment-info').serializeArray();
             data = {};
             for (const item of arr) {
                 data[item.name] = item.value;
             }
-            $.ajax({
-                type: "POST",
-                url: "/predict",
-                data: data,
-                success: (resp) => {
-                    console.log(resp);
-                    const pricePerM2 = parseFloat(resp);
-                    
-                    $("#price-m2").html((pricePerM2/1E6).toFixed(3));
+            console.log(data)
+            if(checkInputField(data)){
+                $('#loading').show();
+                Msg.info("Mô hình đang dự đoán...", 2000);
+                $('#price_predict').hide();
+                $.ajax({
+                    type: "POST",
+                    url: "/predict",
+                    data: data,
+                    success: (resp) => {
+                        console.log(resp);
+                        const pricePerM2 = parseFloat(resp);
 
-                    console.log();
-                    const area = $("#area").val();
-                    $("#price").html((pricePerM2 * area / 1E6).toFixed(3));
+                        $("#price-m2").html((pricePerM2 / 1E6).toFixed(3));
+                        $('#loading').hide();
+                        $('#price_predict').show();
+                        console.log();
+                        const area = $("#area").val();
+                        $("#price").html((pricePerM2 * area / 1E6).toFixed(3));
+                        Msg.success("Predict success!", 2000);
 
-                }
-            });
+                    },
+                    error: function (err) {
+                        Msg.error("Something went wrong!", 2000);
+                        console.log(err)
+                    }
+                });
+            }else{
+                 //something
+            }
+
         });
     </script>
 
 </body>
+
 </html>
