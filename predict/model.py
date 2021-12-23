@@ -3,7 +3,8 @@ from joblib import load
 import pickle
 import os
 import sys
-
+import sklearn
+import pandas as pd
 
 def predict(input, loaded_model):
     result = loaded_model.predict(input)
@@ -18,7 +19,25 @@ def parse_float(x):
     else:
         return float(x)
 
+def parse_bedroom(bedroom, area):
+    if(bedroom == ''):
+        knn_bedroom = joblib.load('bathroom_model.sav')
+        area = np.array(area)
+        area = area.reshape(-1, 1)
+        bedroom_pred = knn_bedroom.predict(area)
+        bedroom = float(bedroom_pred[0])
+    return bedroom
 
+def parse_bathroom(bathroom,  area):
+    if(bathroom == ''):
+        knn_bathroom = joblib.load('bathroom_model.sav')
+        area = np.array(area)
+        area = area.reshape(-1, 1)
+        bathroom_pred = knn_bathroom.predict(area)
+        bathroom = float(bathroom_pred[0])
+    return bathroom
+
+# Main function
 if __name__ == "__main__":
     # Get arguments
     _, pool, skyview, bedroom, bathroom, area, lat, lon, legal, feature, district, ward, project, balcony = sys.argv
@@ -39,8 +58,10 @@ if __name__ == "__main__":
 
     # Parse arguments
     area = parse_float(area)
-    bathroom = parse_float(bathroom)
-    bedroom = parse_float(bedroom)
+    #bathroom = parse_float(bathroom)
+    #bedroom = parse_float(bedroom)
+    bedroom = parse_bedroom(bedroom, area)
+    bathroom  = parse_bathroom(bathroom, area)
 
     # Initialize input model
     input = np.zeros((1, 450))

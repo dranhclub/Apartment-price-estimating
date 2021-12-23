@@ -14,6 +14,9 @@ https://nodejs.org/en/download/
     + `pip install joblib`
     + `pip install sklearn`
 
+- Alternatively, run:     
+    ```pip install -r requirements.txt```
+
 # How to run
 - Command line  
 `npm start`
