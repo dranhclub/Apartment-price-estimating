@@ -3,8 +3,6 @@ from joblib import load
 import pickle
 import os
 import sys
-import sklearn
-import pandas as pd
 
 def predict(input, loaded_model):
     result = loaded_model.predict(input)
@@ -19,18 +17,18 @@ def parse_float(x):
     else:
         return float(x)
 
-def parse_bedroom(bedroom, area):
+def parse_bedroom(bedroom, area, bedroom_model_path):
     if(bedroom == ''):
-        knn_bedroom = joblib.load('bathroom_model.sav')
+        knn_bedroom = load(bedroom_model_path)
         area = np.array(area)
         area = area.reshape(-1, 1)
         bedroom_pred = knn_bedroom.predict(area)
         bedroom = float(bedroom_pred[0])
     return bedroom
 
-def parse_bathroom(bathroom,  area):
+def parse_bathroom(bathroom,  area, bathroom_model_path):
     if(bathroom == ''):
-        knn_bathroom = joblib.load('bathroom_model.sav')
+        knn_bathroom = load(bathroom_model_path)
         area = np.array(area)
         area = area.reshape(-1, 1)
         bathroom_pred = knn_bathroom.predict(area)
@@ -55,13 +53,15 @@ if __name__ == "__main__":
     dict_path = os.path.join(MODEL_FOLDER, 'name_dict.pickle')
     lon_sc_path = os.path.join(MODEL_FOLDER, 'lon_scaler.bin')
     lat_sc_path = os.path.join(MODEL_FOLDER, 'lat_scaler.bin')
+    bathroom_model_path = os.path.join(MODEL_FOLDER, 'bathroom_model.sav')
+    bedroom_model_path = os.path.join(MODEL_FOLDER, 'bedroom_model.sav')
 
     # Parse arguments
     area = parse_float(area)
     #bathroom = parse_float(bathroom)
     #bedroom = parse_float(bedroom)
-    bedroom = parse_bedroom(bedroom, area)
-    bathroom  = parse_bathroom(bathroom, area)
+    bedroom = parse_bedroom(bedroom, area, bedroom_model_path)
+    bathroom  = parse_bathroom(bathroom, area, bathroom_model_path)
 
     # Initialize input model
     input = np.zeros((1, 450))

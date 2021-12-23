@@ -28,8 +28,17 @@ router.post('/predict', function (req, res, next) {
   const project = argv['project']
   
   const area = parseFloat(argv['area'])
-  const bedroom = parseInt(argv['bedroom'])
-  const bathroom = parseInt(argv['bathroom'])
+  if (!argv['bedroom']) {
+    var bedroom = '';
+  } else {
+    var bedroom = parseInt(argv['bedroom'])
+  }
+
+  if (!argv['bathroom']) {
+    var bathroom = ''
+  } else {
+    var bathroom = parseInt(argv['bathroom'])
+  }
 
   const pool = argv['pool'] == 'on' ? 'Có' : 'Không'
   const skyview = argv['skyview'] == 'on' ? 'Có' : 'Không'
